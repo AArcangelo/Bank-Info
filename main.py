@@ -1,3 +1,10 @@
+from account import account
+myaccount = account("April","Rainbowpencil@gmail.com","123-456-789","California",1234567890,True)
+print(myaccount.phone_number)
+
+
+
+
 '''
 deposit 
 withdraw

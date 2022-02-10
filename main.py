@@ -1,6 +1,7 @@
 from account import account
 
 accounts = []
+currentAccount = None
 def add_account():
   nameInput = input("Enter your name")
   cityInput = input("Enter your City")
@@ -13,6 +14,22 @@ def add_account():
   print(len(accounts))
   return add_account()
 
+def load_account():
+  nameInput = input("Enter your name")
+  for account in accounts:
+    if account.name == nameInput:
+      currentAccount = account
+      return mainMenu()
+
+  print("An Account with that name doesn't exist")
+  return mainMenu()
+
+def withdraw():
+  userInput = int(input("How much money do you want to withdraw?"))
+  withdraw_result = currentAccount.withdraw(userInput)
+  print(withdraw_result)
+
+  
 
 
 
@@ -22,7 +39,7 @@ def mainMenu():
   if userChoice == "A":
      return add_account()
   elif userChoice == "B":
-    print("Load Account")
+    return load_account()
   elif userChoice == "C":
     print("Withdraw")
   elif userChoice == "D":

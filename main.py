@@ -29,6 +29,12 @@ def withdraw():
   withdraw_result = currentAccount.withdraw(userInput)
   print(withdraw_result)
 
+def deposit():
+  Userinput = int(input("How much money do you want to deposit?"))
+  deposit_result = currentAccount.deposit(Userinput)
+  print(deposit_result)
+                  
+
   
 
 

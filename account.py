@@ -8,7 +8,7 @@ class account:
     self.socialSecuritynumber = _socialSecuritynumber
     self.isChecking = _isChecking
     self.balance = 0
-
+  
   def withdraw(self,withdrawamount):
     if self.balance- withdrawamount<0:
       return False

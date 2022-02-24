@@ -1,16 +1,25 @@
 from account import account
+import json
 
 accounts = []
 currentAccount = None
 def add_account():
+  currentAccount = ""
   nameInput = input("Enter your name ")
+  currentAccount+= "Name"+nameInput
   cityInput = input("Enter your City ")
+  currentAccount+="City"+cityInput
   emailInput = input("Enter your Email Address ")
+  currentAccount+= "Email Address"+emailInput
   socialInput = input("Enter your Social Security Number ")
+  currentAccount+="Social Security Number"+socialInput
   numberInput = input("Enter your Phone Number ")
-  is_checking = bool(input("Is this a Checking Account? "))
+  currentAccount+= "Phone Number"+numberInput
+  is_checking = input("Is this a Checking Account? ")
+  currentAccount+= "Checking Account"+is_checking
   new_account = account(nameInput,cityInput,emailInput,socialInput,numberInput,is_checking)
   accounts.append(new_account)
+  print(currentAccount)
   print(len(accounts))
   return mainMenu()
 
@@ -65,6 +74,8 @@ def checkBalance():
 
 
 def mainMenu():
+  accountFile = open("accountInfo","r")
+  accountData = accountFile.read()
   print("Welcome to April's ATM")
   userChoice = input("A-Add Account,B-Load Account,C-Withdraw,D-Deposit,E-Check Balance")
   if userChoice == "A":
